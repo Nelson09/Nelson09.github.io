@@ -115,13 +115,12 @@ svg.append("text")
 
 })
 
-
 </script>
 
       <script>
-      d3.csv("https://raw.githubusercontent.com/Nelson09/Narrative-Visualization/main/Monthly_Spend.csv", d3.autoType).then(function(data) {
+      d3.csv("https://raw.githubusercontent.com/Nelson09/Nelson09.github.io/main/DataSet/JAN_DETAILS.csv", d3.autoType).then(function(data) {
 console.log(data[0].Category)
-var columns = ['Month','Total_Spend']
+var columns = ['Month','Category','Transcation','Cost']
 tabulate(data,columns)})
       </script>
 
