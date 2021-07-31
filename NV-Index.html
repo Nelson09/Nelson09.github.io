@@ -5,16 +5,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://d3js.org/d3.v5.min.js"></script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
     <title>Budgeting</title>
   </head>
   <body >
         <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-        <img src="Images\condo-budgets.jpg" class="img-fluid" alt="Responsive image">
-        </div>
-        </div>
+  <div class="container">
+      <h1>  </h1>
+      <img src="condo-budgets.jpg" class="img-fluid" alt="Responsive image">
+       </div>
+     </div>
      <h2> What is Budget  ?</h2>
          <p> A budget is a plan you write down to decide how you will spend your money each month.</p>
          <p> A budget helps you make sure you will have enough money every month. Without a budget, you might run out of money before your next paycheck.</p>
@@ -32,26 +35,24 @@
      <h2>Why should I try to save money?</h2>
         <p>You might need money for an emergency. You also might need to buy something more expensive, like a car. Saving money might help you buy a car, put a security deposit on an apartment, or pay for something else expensive.</p>
 
-     <h2>Below is the yearly expense report of a person named <b> JAMES BOND </b></h2>
-      <p> If you look at the chart the expense is not consistent and it varies each month and might be this person does not have a budget planned. </p>
-
-      <p> <b>Note : </b> Hover over the chart for the acutal readings</p>
-		  <svg width=1200 height =800 style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)">
-			<line x1="100" y1="460" x2="850" y2="460" style="stroke:rgb(255,125,0);stroke-width:3" />
-			<text x="870" y="460" font-family="sans-serif" font-size="12px" fill="Orange">Average Expenses:</text>
-			<!--<line x1="950" y1="245" x2="850" y2="525" style="stroke:rgb(255,125,0);stroke-width:3" /> -->
-		   <div width =700 height =200 >
-		   <h3 align = left style ="font-color:white">Expense Report - 2020 </h3>
-		  </div>
-		 </svg>
-	  <div>
-	  <div align = "center">
-		<a align = "center " href="ExpenseByCategory.html" class="btn btn-primary">More details on Budgeting.....</a>
-	  </div>
+  <h2>Below is the yearly expense report of a person named <b> JAMES BOND </b></h2>
+      <p> If you look at the chart the expense is not consistent and it varies each month and might be this person does not have a budget planned.</p>
+      <svg width=1200 height =800 style="border:1px solid black">
+        <line x1="100" y1="523" x2="850" y2="523" style="stroke:rgb(255,125,0);stroke-width:3" />
+        <text x="870" y="523" font-family="sans-serif" font-size="12px" fill="Black">Average Expenses:</text>
+        <!--<line x1="950" y1="245" x2="850" y2="525" style="stroke:rgb(255,125,0);stroke-width:3" /> -->
+       <div width =1000 height =50 >
+       <h3 align = center style ="font-color:white">Expense report for year 2020 </h3>
+     </div>
+  </svg>
+  <div>
+  <div align = "center">
+    <a align = "center " href="ExpenseByCategory.html" class="btn btn-primary">More details on Budgeting...</a>
+  </div>
 
  <script type="text/javascript">
 var color =["red","magenta","aquamarine","purple","navy","gold","pink"]
-d3.csv("https://raw.githubusercontent.com/Nelson09/Narrative-Visualization/main/DataSet/Monthly_Spend.csv", d3.autoType).then(function(data) {
+d3.csv("https://raw.githubusercontent.com/Nelson09/Narrative-Visualization/main/Monthly_Spend.csv", d3.autoType).then(function(data) {
 console.log(data[0].Month)
 var width = 800;
 var height = 600;
@@ -79,6 +80,7 @@ d3.select("svg").append("g").attr("transform", "translate("+margin+","+(height+m
         .attr("dx", "-.8em")
         .attr("dy", ".15em")
         .attr("transform", "rotate(-90)")//.append("text").text(d.Month)//.attr("transform","rotate(-65)");
+//d3.select("svg").selectAll("rect").data(data).on("mouseover",function(d,i){tooltip.style("opacity",1).style("left",(d3.event.pageX)+"px").style("top",(d3.event.pageY)+"px").html("weight is"+ d.Weight)})
 d3.select('body').append('div').attr('id', 'tooltip').attr('style', 'position: absolute; opacity: 0;');
 d3.selectAll("rect").data(data).on('mouseover', function(d) {
  d3.select('#tooltip').transition().duration(200).style('opacity', 1).text(d.Total_Spend+"$ "+d.Month).style("left",(d3.event.pageX)+"px").style("top",(d3.event.pageY)+"px")
